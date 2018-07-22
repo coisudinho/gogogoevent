@@ -1,0 +1,47 @@
+
+	<aside>
+		<%= render "devise/shared/links" %>
+	</aside>
+	<section>
+		<h2>Sign Up</h2>
+		<div class="content">
+			<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+				<%= devise_error_messages! %>
+
+				<div class="field">
+					<%= f.label :cnpj, autofocus: true  %>
+					<%= f.text_field :cnpj %>
+				</div>
+				<div class="field">
+					<%= f.label :company_name %>
+					<%= f.text_field :company_name %>
+				</div>
+				<div class="field">
+					<%= f.label :name %>
+					<%= f.text_field :name %>
+				</div>
+				<div class="field">
+					<%= f.label :email %>
+					<%= f.email_field :email %>
+				</div>
+				<div class="field">
+					<%= f.label :password do %>
+						Password 
+						<% if @minimum_password_length %>
+						<em>(min.: <%= @minimum_password_length %>)</em>
+						<% end %>
+					<% end %>
+					<%= f.password_field :password %>
+				</div>
+				<div class="field">
+					<%= f.label :password_confirmation %><br />
+					<%= f.password_field :password_confirmation %>
+				</div>
+
+				<div class="actions">
+					<%= f.submit "Save" %>
+				</div>
+			<% end %>
+		</div>
+	</section>
+

@@ -1,0 +1,35 @@
+	<% if notice %>
+	<p><%= notice %></p>
+	<% end %>
+	<aside>
+		<%= link_to new_event_path do %><span>New Event</span><% end %>
+	</aside>
+	<section>
+		<h1>Events</h1>
+		<% if @events.blank? %>
+			<p>No entries found. Use the button on the right to create one!</p>
+		<% else %>
+		<div class="content list">
+			<% @events.each do |event| %>
+
+			<div style="background-image:url('<%= event.image_url(:thumb).to_s %>')" >
+				<ul>
+					<li>
+						<span class="title"><%= event.title %></span>
+						<span><%= event.address %></span>
+					</li>
+					<li>
+						<span>Duration: <%= event.duration %></span>
+						<span>Seats: <%= event.seats %></span>
+					</li>
+					<li><span class="price"><%= number_to_currency event.price %></span></li>
+				</ul>
+				<p>
+					<%= link_to "Edit", edit_event_path(event) %> | <%= link_to "Delete", event, method: :delete, data: { confirm: "Are you sure?" } %>
+				</p>
+			</div>
+
+			<% end %>
+		<% end %>
+		</div>
+	</section>

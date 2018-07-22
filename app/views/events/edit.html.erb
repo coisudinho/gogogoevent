@@ -1,0 +1,9 @@
+	<aside>
+		<%= link_to new_event_path do %><span>New Event</span><% end %>
+	</aside>
+	<section>
+		<h1>Edit Event</h1></h1>
+		<div class="content">
+			<%= render "form", event: @event %>
+		</div>
+	</section>
